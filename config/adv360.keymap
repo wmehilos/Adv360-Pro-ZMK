@@ -2,87 +2,206 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/stp.h>
 #include <dt-bindings/zmk/backlight.h>
-#include <dt-bindings/zmk/pointing.h>
+
+
+#define ______ &trans
+#define xxxxxx &none
+
+#define DVORAKP 0
+#define KEYPAD 1
+#define FN 2
+#define MOD 3
 
 / {
     behaviors {
-      #include "macros.dtsi"
-      #include "version.dtsi"
+        #include "macros.dtsi"
+        #include "version.dtsi"
+        #ifndef VERSION_MACRO
+        macro_ver: macro_ver {
+            compatible = "zmk,behavior-macro";
+            label = "macro_version";
+            #binding-cells = <0>;
+            bindings = <&kp RET>;
+        };
+        #endif
 
-      hm: homerow_mods {
-          compatible = "zmk,behavior-hold-tap";
-          label = "HOMEROW_MODS";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          flavor = "tap-preferred";
-          bindings = <&kp>, <&kp>;
-      };
+        gpipe: grave_pipe {
+            compatible = "zmk,behavior-mod-morph";
+            label = "grave_pipe";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE>, <&kp PIPE>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        ppipe: pipe_pipe {
+            compatible = "zmk,behavior-mod-morph";
+            label = "pipe_pipe";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE>, <&kp PIPE>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        pkp_n1: plus_kp_n1 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "plus_kp_n1";
+            #binding-cells = <0>;
+            bindings = <&kp PLUS>, <&kp KP_N1>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        lkp_n2: left_bracket_kp_n2 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "left_bracket_kp_n2";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET>, <&kp KP_N2>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        lkp_n3: left_brace_kp_n3 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "left_brace_kp_n3";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE>, <&kp KP_N3>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        lkp_n4: left_parenthesis_kp_n4 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "left_parenthesis_kp_n4";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS>, <&kp KP_N4>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        akp_n5: amps_kp_n5 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "amps_kp_n5";
+            #binding-cells = <0>;
+            bindings = <&kp AMPS>, <&kp KP_N5>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        ekp_n6: equal_kp_n6 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "equal_kp_n6";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL>, <&kp KP_N6>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        rkp_n7: right_parenthesis_kp_n7 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "right_parenthesis_kp_n7";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_PARENTHESIS>, <&kp KP_N7>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        rkp_n8: right_brace_kp_n8 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "right_brace_kp_n8";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_BRACE>, <&kp KP_N8>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        rkp_n9: right_bracket_kp_n9 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "right_bracket_kp_n9";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_BRACKET>, <&kp KP_N9>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        skp_n0: star_kp_n0 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "star_kp_n0";
+            #binding-cells = <0>;
+            bindings = <&kp STAR>, <&kp KP_N0>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        eprcnt: excl_prcnt {
+            compatible = "zmk,behavior-mod-morph";
+            label = "excl_prcnt";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL>, <&kp PRCNT>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        dgrave: dllr_grave {
+            compatible = "zmk,behavior-mod-morph";
+            label = "dllr_grave";
+            #binding-cells = <0>;
+            bindings = <&kp DLLR>, <&kp GRAVE>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        dtilde: dllr_tilde {
+            compatible = "zmk,behavior-mod-morph";
+            label = "dllr_tilde";
+            #binding-cells = <0>;
+            bindings = <&kp DLLR>, <&kp TILDE>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        ggrave: grave_grave {
+            compatible = "zmk,behavior-mod-morph";
+            label = "grave_grave";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE>, <&kp GRAVE>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        pgrave: pipe_grave {
+            compatible = "zmk,behavior-mod-morph";
+            label = "pipe_grave";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE>, <&kp GRAVE>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        bhash: bslh_hash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "bslh_hash";
+            #binding-cells = <0>;
+            bindings = <&kp BSLH>, <&kp HASH>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
+        acaret: at_caret {
+            compatible = "zmk,behavior-mod-morph";
+            label = "at_caret";
+            #binding-cells = <0>;
+            bindings = <&kp AT>, <&kp CARET>;
+            mods = <(LGUI|LSHIFT|RGUI|RSHIFT)>;
+        };
     };
 
-  keymap {
-    compatible = "zmk,keymap";
+    keymap {
+        compatible = "zmk,keymap";
 
-    default_layer {
-      display-name = "Base";
-      bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
-      >;
-    };
-    keypad {
-      display-name = "Kp";
-      bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &kp HOME &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
-      >;
-    };
-    fn {
-      display-name = "Fn";
-      bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                           &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-        &trans &trans &trans &trans &trans &trans  &none                                           &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans  &none        &trans &trans &trans &trans        &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans                      &trans &trans                     &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans &trans &trans  &trans  &trans
-      >;
-    };
-    mod {
-      display-name = "Mod";
-      bindings = <
-        &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                     &trans                 &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &none        &none        &bootloader                                                               &bootloader            &none        &none        &none        &none &none &none
-        &studio_unlock &none        &none        &none        &none        &none        &none                   &none &none &bt BT_CLR &none                      &stp STP_BAT &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &macro_ver   &none                                      &none &none                                                        &none        &none        &none        &none &none &none
-        &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
-      >;
-    };
-    extra1 { 
-      display-name = "Red";    
-      status = "reserved";
-    };
+        dvorak_prog {
+            bindings = <
+                &pgrave  &pkp_n1       &lkp_n2       &lkp_n3        &lkp_n4        &akp_n5       ______                                      ______  &ekp_n6  &rkp_n7        &rkp_n8        &rkp_n9       &skp_n0       &eprcnt
+                ______   &kp SEMI      &kp COMMA     &kp DOT        &kp P          &kp Y         ______                                      ______  &kp F    &kp G          &kp C          &kp R         &kp L         &bhash
+                ______   &hm_l LGUI A  &hm_l LALT O  &hm_l LCTRL E  &hm_l LSHFT U  &lt KEYPAD I  ______  ______  ______      ______  ______  ______  &kp D    &hm_r RSHFT H  &hm_r RCTRL T  &hm_r RALT N  &hm_r RGUI S  &kp MINUS
+                ______   &kp SQT       &kp Q         &kp J          &kp K          &kp X                         ______      ______                  &kp B    &kp M          &kp W          &kp V         &kp Z         ______
+                ______   &dtilde       ______        ______         ______                       ______  ______  ______      ______  ______  ______           ______         ______         &kp FSLH      &acaret       ______
+            >;
+        };
 
-    extra2 { 
-      display-name = "Purple";    
-      status = "reserved";
-    };
+        keypad {
+            bindings = <
+                ______  ______  ______  ______  ______  ______  ______                                      ______     ______  &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  ______
+                ______  ______  ______  ______  ______  ______  ______                                      ______     ______  &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     ______
+                ______  ______  ______  ______  ______  ______  ______  ______  ______      ______  ______  ______     ______  &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      ______
+                ______  ______  ______  ______  ______  ______                  ______      ______                     ______  &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     ______
+                ______  ______  ______  ______  ______          ______  ______  ______      ______  ______  &kp KP_N0          ______      ______        &kp KP_DOT     ______           ______
+            >;
+        };
 
-    extra3 { 
-      display-name = "Cyan";    
-      status = "reserved";
-    };
+        fn {
+            bindings = <
+                &kp F1  &kp F2  &kp F3     &kp F4  &kp F5  &kp F6  ______                                           ______  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+                ______  ______  ______     ______  ______  ______  ______                                       xxxxxx  ______  ______  ______  ______   ______   ______
+                ______  ______  ______     ______  ______  ______  ______  ______  ______      ______  ______  xxxxxx  ______  ______  ______  ______   ______   ______
+                ______  ______  ______     ______  ______  ______                       ______      ______                  ______  ______  ______  ______   ______   ______
+                ______  ______  &kp K_APP  ______  ______          ______       ______  ______      ______  ______  ______          ______  ______  ______   ______   ______
+            >;
+        };
 
-    extra4 { 
-      display-name = "Yellow";    
-      status = "reserved";
+        mod {
+            bindings = <
+                xxxxxx  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  xxxxxx                                                  ______                  xxxxxx  xxxxxx      xxxxxx      xxxxxx  xxxxxx  xxxxxx
+                xxxxxx  xxxxxx        xxxxxx        xxxxxx        xxxxxx        xxxxxx        &bootloader                                             &bootloader             xxxxxx  xxxxxx      xxxxxx      xxxxxx  xxxxxx  xxxxxx
+                xxxxxx  xxxxxx        xxxxxx        xxxxxx        xxxxxx        xxxxxx        xxxxxx       xxxxxx  xxxxxx     &bt BT_CLR  xxxxxx      &rgb_ug RGB_MEFS_CMD 5  xxxxxx  xxxxxx      xxxxxx      xxxxxx  xxxxxx  xxxxxx
+                xxxxxx  xxxxxx        xxxxxx        xxxxxx        &macro_ver    xxxxxx                             xxxxxx     xxxxxx                                          xxxxxx  xxxxxx      xxxxxx      xxxxxx  xxxxxx  xxxxxx
+                xxxxxx  xxxxxx        xxxxxx        xxxxxx        xxxxxx                      xxxxxx       xxxxxx  xxxxxx     xxxxxx      &bl BL_TOG  &rgb_ug RGB_TOG                 &bl BL_INC  &bl BL_DEC  xxxxxx  xxxxxx  xxxxxx
+            >;
+        };
     };
-  };
 };
