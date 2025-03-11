@@ -168,7 +168,7 @@
             bindings = <
                 &pgrave  &pkp_n1       &lkp_n2       &lkp_n3        &lkp_n4        &akp_n5       ______                                      ______  &ekp_n6  &rkp_n7        &rkp_n8        &rkp_n9       &skp_n0       &eprcnt
                 ______   &kp SEMI      &kp COMMA     &kp DOT        &kp P          &kp Y         ______                                      ______  &kp F    &kp G          &kp C          &kp R         &kp L         &bhash
-                ______   &hm_l LGUI A  &hm_l LALT O  &hm_l LCTRL E  &hm_l LSHFT U  &lt KEYPAD I  ______  ______  ______      ______  ______  ______  &kp D    &hm_r RSHFT H  &hm_r RCTRL T  &hm_r RALT N  &hm_r RGUI S  &kp MINUS
+                ______   &kp A         &kp O         &kp E          &kp U          &kp I         ______  ______  ______      ______  ______  ______  &kp D    &kp H          &kp T          &kp N         &kp S         &kp MINUS
                 ______   &kp SQT       &kp Q         &kp J          &kp K          &kp X                         ______      ______                  &kp B    &kp M          &kp W          &kp V         &kp Z         ______
                 ______   &dtilde       ______        ______         ______                       ______  ______  ______      ______  ______  ______           ______         ______         &kp FSLH      &acaret       ______
             >;
