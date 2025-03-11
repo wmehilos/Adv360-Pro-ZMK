@@ -164,13 +164,14 @@
     keymap {
         compatible = "zmk,keymap";
 
-        dvorak_prog {
+        default_layer {
+            display-name = "dvorak-prog";
             bindings = <
-                &pgrave  &pkp_n1       &lkp_n2       &lkp_n3        &lkp_n4        &akp_n5       ______                                      ______  &ekp_n6  &rkp_n7        &rkp_n8        &rkp_n9       &skp_n0       &eprcnt
-                ______   &kp SEMI      &kp COMMA     &kp DOT        &kp P          &kp Y         ______                                      ______  &kp F    &kp G          &kp C          &kp R         &kp L         &bhash
-                ______   &kp A         &kp O         &kp E          &kp U          &kp I         ______  ______  ______      ______  ______  ______  &kp D    &kp H          &kp T          &kp N         &kp S         &kp MINUS
-                ______   &kp SQT       &kp Q         &kp J          &kp K          &kp X                         ______      ______                  &kp B    &kp M          &kp W          &kp V         &kp Z         ______
-                ______   &dtilde       ______        ______         ______                       ______  ______  ______      ______  ______  ______           ______         ______         &kp FSLH      &acaret       ______
+                &pgrave     &pkp_n1       &lkp_n2       &lkp_n3        &lkp_n4        &akp_n5       &tog 1                                                            $m0 3   &ekp_n6  &rkp_n7        &rkp_n8        &rkp_n9       &skp_n0       &eprcnt
+                $kp TAB     &kp SEMI      &kp COMMA     &kp DOT        &kp P          &kp Y         ______                                                            ______  &kp F    &kp G          &kp C          &kp R         &kp L         &bhash
+                $kp ESC     &kp A         &kp O         &kp E          &kp U          &kp I         ______        &kp LGUI  &kp LALT      &kp LCTRL  &kp RCTRL        ______  &kp D    &kp H          &kp T          &kp N         &kp S         &kp MINUS
+                $kp LSHFT   &kp SQT       &kp Q         &kp J          &kp K          &kp X                                 &kp HOME      &kp PG_UP                           &kp B    &kp M          &kp W          &kp V         &kp Z         &kp RSHFT
+                $mo 2       &dtilde       $kp CAPS      $kp LEFT       $kp RIGHT                        &kp BSPC  &kp DEL   &kp END      &kp PG_DN  &kp ENTER  &kp SPACE               &kp UP         &kp DOWN       &kp FSLH      &acaret       ______
             >;
         };
 
